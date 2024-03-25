@@ -137,7 +137,7 @@ services:
       - ELASTICS_HOSTS=https://es01:9200
     command: logstash -f /usr/share/logstash/pipeline/logstash/logstash2.conf
     mem_limit: ${MEM_LIMIT}
-    
+
   rabbitmq:
     image: rabbitmq
     ports:
@@ -145,7 +145,6 @@ services:
         - 15672:15672
     volumes:
         - ./docker-conf:/var/log/rabbitmq:ro
-
 
 volumes:
   certs:

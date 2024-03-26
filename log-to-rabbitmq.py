@@ -6,6 +6,8 @@ import time
 import logging
 from python_logging_rabbitmq import RabbitMQHandler
 
+logname = "log_example_for_task.txt"
+
 # configure the logging tool
 logger = logging.getLogger("siuntejas")
 logger.setLevel(logging.DEBUG)
@@ -21,7 +23,6 @@ rabbit = RabbitMQHandler(
 logger.addHandler(rabbit)
 
 # open the log file and read the content
-logname = "log_example_for_task.txt"
 logfile = open(logname, "r")
 lines = logfile.readlines()
 

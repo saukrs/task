@@ -24,5 +24,5 @@ count = 0
 for line in lines:
     count += 1
     logger.info(line)
-    print("Line {}: {}".format(count, line.strip()))
+    print("Processed line {}: {}".format(count, line.strip()))
 

@@ -2,10 +2,16 @@
 # Via: https://gist.github.com/h3xagn/8e0f26f8b09937eacc5fe33937f9481a#file-rabbitmq-producer-py
 
 # import libraries
+import sys
 import logging
 from python_logging_rabbitmq import RabbitMQHandler
 
-logname = "log_example_for_task.txt"
+# The log file name
+if (len(sys.argv) < 2):
+    print("Input file name missing")
+    exit(1)
+
+logname = sys.argv[1]
 
 # configure the logging tool
 logger = logging.getLogger("siuntejas")

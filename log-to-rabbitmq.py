@@ -21,7 +21,8 @@ rabbit = RabbitMQHandler(
 logger.addHandler(rabbit)
 
 # open the log file and read the content
-logfile = open("log_example_for_task.txt", "r")
+logname = "log_example_for_task.txt"
+logfile = open(logname, "r")
 lines = logfile.readlines()
 
 for line in lines:

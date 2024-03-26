@@ -131,6 +131,7 @@ services:
       - logstash:/usr/share/logstash/data
       - ./logstash.conf:/usr/share/logstash/pipeline/logstash:ro
     environment:
+      - xpack.monitoring.enabled=false
       - NODE_NAME="logstash"
       - ELASTIC_USER=elastic
       - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}

@@ -9,7 +9,7 @@ logname = "log_example_for_task.txt"
 
 # configure the logging tool
 logger = logging.getLogger("siuntejas")
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 # configure RabbitMQ logger
 rabbit = RabbitMQHandler(

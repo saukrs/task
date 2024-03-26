@@ -9,11 +9,6 @@ from python_logging_rabbitmq import RabbitMQHandler
 # set app name
 APP_NAME = "app1"
 
-# configure logging
-FORMAT = "[%(asctime)s.%(msecs)03d] %(levelname)s [%(thread)d] [%(name)s] %(message)s"
-formatter = logging.Formatter(fmt=FORMAT)
-rabbit = RabbitMQHandler(formatter=formatter)
-
 logger = logging.getLogger(APP_NAME)
 logger.setLevel(logging.DEBUG)
 
@@ -22,8 +17,6 @@ rabbit = RabbitMQHandler(
     host="localhost",
     port=5672,
     exchange="amq.topic",
-    fields={"source": f"{APP_NAME}-producer", "env": "development"},
-    fields_under_root=True,
 )
 logger.addHandler(rabbit)
 

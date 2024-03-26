@@ -6,10 +6,7 @@ import time
 import logging
 from python_logging_rabbitmq import RabbitMQHandler
 
-# set app name
-APP_NAME = "app1"
-
-logger = logging.getLogger(APP_NAME)
+logger = logging.getLogger("siuntejas")
 logger.setLevel(logging.DEBUG)
 
 # configure RabbitMQ logger
@@ -20,16 +17,4 @@ rabbit = RabbitMQHandler(
 )
 logger.addHandler(rabbit)
 
-# simulate logging messages
-for i in range(1000):
-    logger.debug(f"... this is a log message from '{APP_NAME}'.")
-    time.sleep(1)
-
-    logger.info(f"--- this is a log message from '{APP_NAME}'.")
-    time.sleep(1)
-
-    logger.warning(f"*-* this is a log message from '{APP_NAME}'.")
-    time.sleep(1)
-
-    logger.error(f"*** this is a log message from '{APP_NAME}'.")
-    time.sleep(1)
+logger.info("Sending a sample message")

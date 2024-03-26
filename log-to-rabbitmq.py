@@ -17,4 +17,12 @@ rabbit = RabbitMQHandler(
 )
 logger.addHandler(rabbit)
 
+logfile = open("log_example_for_task.txt", "r")
+lines = logfile.readlines()
+count = 0
+
+for line in lines:
+    count += 1
+    print("Line {}: {}".format(count, line.strip()))
+
 logger.info("Sending a sample message")

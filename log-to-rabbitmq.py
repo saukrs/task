@@ -23,6 +23,6 @@ count = 0
 
 for line in lines:
     count += 1
+    logger.info(line)
     print("Line {}: {}".format(count, line.strip()))
 
-logger.info("Sending a sample message")

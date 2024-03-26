@@ -1,0 +1,45 @@
+```
+# Patikrinu steko busena:
+make ps
+# Tuscias, neveikia.
+
+# Pakeliu steka is naujo (Docker Compose) projekta:
+make up
+
+# OK, lyg pakilo. Tikrinu steko busena vel:
+make ps
+
+# OK, bandau tikrint logstash logus:
+docker compose logs logstash -f -n 20
+
+# Kai peržiūri, spaudi <Ctrl-C>
+# Keista, vel rodo url=>"http://elasticsearch:9200/"
+
+# Ar visi servisai dar pakile:
+make ps
+
+# Patikrinkim ES klasterio busena:
+make status
+# Lyg veikia su vienu nodu, bet "status" yra "red".
+
+# Pabandysiu sukurt indeksa rankomis, is logstash konteinerio per REST API kreipdamasis i es01 konteineri:
+make index
+
+# Lyg sukure. Patikrinkim ES busena dabar:
+make status
+
+# Kaip matai, indeksas "arturas" turi dvi replikas, bet nei viena niekur nepriskirta.
+# Ir paieska, "/_search?pretty" rodo klaida:
+# "no_shard_available_action_exception"
+# Cia ka tik sukurtam indeksui.
+
+# Dar pasiruosiau issamesne komanda:
+make explain
+
+# Va klaida:
+# "the node is above the high watermark cluster setting [cluster.routing.allocation.disk.watermark.high=90%], having less than the minimum required [6.8g
+b] free space, actual free: [1gb], actual used: [98.5%]"
+
+# Panasu, kad pas mane diske vieta baigesi:
+df -Th .
+```

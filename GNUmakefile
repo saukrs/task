@@ -36,3 +36,6 @@ explain:
 	@\
 	 set -x  &&\
 	 docker compose exec logstash curl --user elastic:changeme -k -X GET "https://es01:9200/_cluster/allocation/explain?pretty"
+
+read:
+	@python3 log-to-rabbitmq.py
